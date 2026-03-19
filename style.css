@@ -1,0 +1,102 @@
+:root {
+    --bg-dark: #070707;
+    --bg-card: rgba(26, 26, 26, 0.6); /* Cam efekti için yarı saydam */
+    --primary: #00E676;
+    --primary-hover: #00c853;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Animasyon Sınıfları */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 5%; background: rgba(7, 7, 7, 0.8);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    position: fixed; width: 100%; top: 0; z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo { font-size: 1.5rem; font-weight: 900; letter-spacing: 2px; color: var(--primary); }
+.github-btn { color: var(--text-main); text-decoration: none; font-weight: 700; padding: 8px 16px; border: 1px solid var(--text-muted); border-radius: 8px; transition: 0.3s; }
+.github-btn:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 15px rgba(0, 230, 118, 0.2); }
+
+.hero { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; min-height: 100vh; padding: 120px 5% 50px; gap: 40px; }
+.hero-content { flex: 1; min-width: 300px; }
+.badge { display: inline-block; padding: 6px 12px; background: rgba(0, 230, 118, 0.1); color: var(--primary); border-radius: 20px; font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; border: 1px solid rgba(0, 230, 118, 0.3); }
+h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+.highlight { color: var(--primary); text-shadow: 0 0 30px rgba(0, 230, 118, 0.3); }
+.hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; max-width: 500px; }
+.hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+.btn { padding: 15px 25px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 1rem; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+.primary-btn { background-color: var(--primary); color: #000; box-shadow: 0 10px 20px rgba(0, 230, 118, 0.2); }
+.primary-btn:hover { background-color: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 15px 25px rgba(0, 230, 118, 0.4); }
+.secondary-btn { background-color: transparent; color: var(--text-main); border: 1px solid rgba(255, 255, 255, 0.2); }
+.secondary-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); }
+
+/* Terminal */
+.hero-image { flex: 1; min-width: 300px; display: flex; justify-content: center; }
+.terminal-window { background: #000; border-radius: 12px; width: 100%; max-width: 500px; box-shadow: 0 20px 50px rgba(0, 230, 118, 0.15); border: 1px solid #333; overflow: hidden; }
+.terminal-header { background: #111; padding: 10px 15px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #333; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red { background: #FF5F56; } .dot.yellow { background: #FFBD2E; } .dot.green { background: #27C93F; }
+.terminal-header .title { margin-left: auto; margin-right: auto; color: #888; font-size: 0.8rem; font-weight: 700; }
+.terminal-body { padding: 20px; font-family: var(--font-mono); font-size: 0.95rem; min-height: 200px; }
+.log { margin-bottom: 8px; transition: opacity 0.3s; }
+.log.system { color: #26C6DA; } .log.info { color: var(--text-muted); } .log.success { color: var(--primary); }
+.cursor { display: inline-block; width: 10px; height: 15px; background: var(--primary); animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Yeni: Nasıl Çalışır (Timeline) */
+.how-it-works { padding: 80px 5%; text-align: center; background: linear-gradient(180deg, var(--bg-dark) 0%, #0d0d0d 100%); }
+.how-it-works h2 { font-size: 2.5rem; margin-bottom: 50px; }
+.steps-container { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px; max-width: 1000px; margin: 0 auto; }
+.step { flex: 1; min-width: 250px; background: var(--bg-card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 30px 20px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); }
+.step-number { width: 40px; height: 40px; background: rgba(0, 230, 118, 0.1); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; margin: 0 auto 15px; border: 1px solid rgba(0, 230, 118, 0.3); }
+.step h3 { margin-bottom: 10px; font-size: 1.2rem; }
+.step p { color: var(--text-muted); font-size: 0.95rem; }
+.step-arrow { color: var(--primary); font-size: 1.5rem; opacity: 0.5; }
+
+/* Özellikler (Glassmorphism + Neon Glow) */
+.features { padding: 80px 5%; text-align: center; }
+.features h2 { font-size: 2.5rem; margin-bottom: 50px; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.feature-card { background: var(--bg-card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 40px 20px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.feature-card:hover { transform: translateY(-10px); border-color: rgba(0, 230, 118, 0.4); box-shadow: 0 15px 35px rgba(0, 230, 118, 0.15); }
+.feature-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; transition: 0.3s; }
+.feature-card:hover i { transform: scale(1.1); text-shadow: 0 0 15px rgba(0, 230, 118, 0.5); }
+.feature-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.feature-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+footer { text-align: center; padding: 40px 5%; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-muted); font-size: 0.9rem; }
+
+@media (max-width: 900px) {
+    .step-arrow { display: none; } /* Mobilde okları gizle */
+}
+@media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    .hero { text-align: center; padding-top: 100px; }
+    .hero-content { display: flex; flex-direction: column; align-items: center; }
+    .hero-buttons { justify-content: center; }
+}

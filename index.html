@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AServer - The Ultimate Pocket Node</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><i class="fa-solid fa-server"></i> AServer</div>
+        <div class="nav-links">
+            <a href="https://github.com/BadiAdam/AServer" target="_blank" class="github-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content reveal">
+            <div class="badge">v1.1.0 is out! 🚀</div>
+            <h1>The Ultimate <span class="highlight">Pocket Node</span></h1>
+            <p>Run fully functional PaperMC and Fabric Minecraft servers natively on your Android device. No PC. No root. Just pure power.</p>
+            <div class="hero-buttons">
+                <a href="https://github.com/BadiAdam/AServer/releases/latest/download/AServer-v1.1.0.apk" class="btn primary-btn">
+                    <i class="fa-solid fa-download"></i> Download APK
+                </a>
+                <a href="#features" class="btn secondary-btn">Explore Features</a>
+            </div>
+        </div>
+        
+        <div class="hero-image reveal">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="title">AServer Console</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="log system">>>> [SYSTEM] Starting AServer Engine...</p>
+                    <p class="log info">>>> [INFO] Java 21 environment detected.</p>
+                    <p class="log info">>>> [INFO] Loading Fabric Loader 0.16.0...</p>
+                    <p class="log success">>>> [SERVER] Done (4.12s)! For help, type "help"</p>
+                    <p class="log command"><span class="cursor">_</span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="how-it-works reveal">
+        <h2>How It Works?</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Configure</h3>
+                <p>Choose your software (Paper/Fabric), version, and RAM.</p>
+            </div>
+            <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Launch</h3>
+                <p>AServer generates a script and boots up PRoot Ubuntu via Termux.</p>
+            </div>
+            <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Control</h3>
+                <p>Return to the app for live RCON control, logs, and player management.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features reveal">
+        <h2>Why Choose AServer?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-layer-group"></i>
+                <h3>Dual-Engine</h3>
+                <p>Run both Plugin-based (PaperMC) and Modded (Fabric) servers effortlessly with one tap.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-store"></i>
+                <h3>Smart Mod Store</h3>
+                <p>Built-in Modrinth integration with strict version matching. Never crash your server again.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-terminal"></i>
+                <h3>Live Console</h3>
+                <p>Real-time colored ANSI logs, hardware monitoring, and quick macro buttons.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Made with 💻 and ☕ by the AServer Team.</p>
+        <p>Open Source. MIT License.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
