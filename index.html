@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AServer - The Ultimate Pocket Node</title>
+    <title>AServer - The Ultimate Minecraft Node</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,18 +12,22 @@
     <nav class="navbar">
         <div class="logo"><i class="fa-solid fa-server"></i> AServer</div>
         <div class="nav-links">
-            <a href="https://github.com/BadiAdam/AServer" target="_blank" class="github-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://github.com/BadiAdam/AServer-PC" target="_blank" class="github-btn pc-outline"><i class="fa-brands fa-windows"></i> PC GitHub</a>
+            <a href="https://github.com/BadiAdam/AServer" target="_blank" class="github-btn android-outline"><i class="fa-brands fa-android"></i> Android GitHub</a>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-content reveal">
-            <div class="badge">v1.1.0 is out! 🚀</div>
-            <h1>The Ultimate <span class="highlight">Pocket Node</span></h1>
-            <p>Run fully functional PaperMC and Fabric Minecraft servers natively on your Android device. No PC. No root. Just pure power.</p>
+            <div class="badge">Windows & Android Platformlarında! 🚀</div>
+            <h1>Your Personal <span class="highlight">Server Node</span></h1>
+            <p>Run fully functional PaperMC and Fabric Minecraft servers effortlessly on your <strong>Windows PC</strong> or <strong>Android</strong> device. No complex setups. Just pure power.</p>
             <div class="hero-buttons">
-                <a href="https://github.com/BadiAdam/AServer/releases/latest/download/AServer-v1.1.0.apk" class="btn primary-btn">
-                    <i class="fa-solid fa-download"></i> Download APK
+                <a href="https://github.com/BadiAdam/AServer-PC/releases/latest" target="_blank" class="btn pc-btn">
+                    <i class="fa-brands fa-windows"></i> Download for PC
+                </a>
+                <a href="https://github.com/BadiAdam/AServer/releases/latest/download/AServer-v1.1.0.apk" class="btn android-btn">
+                    <i class="fa-brands fa-android"></i> Download APK
                 </a>
                 <a href="#features" class="btn secondary-btn">Explore Features</a>
             </div>
@@ -37,8 +41,8 @@
                 </div>
                 <div class="terminal-body">
                     <p class="log system">>>> [SYSTEM] Starting AServer Engine...</p>
-                    <p class="log info">>>> [INFO] Java 21 environment detected.</p>
-                    <p class="log info">>>> [INFO] Loading Fabric Loader 0.16.0...</p>
+                    <p class="log info">>>> [INFO] Auto-Downloading Java 21 environment...</p>
+                    <p class="log info">>>> [INFO] Loading Fabric Loader & Playit.gg Tunnel...</p>
                     <p class="log success">>>> [SERVER] Done (4.12s)! For help, type "help"</p>
                     <p class="log command"><span class="cursor">_</span></p>
                 </div>
@@ -52,19 +56,19 @@
             <div class="step">
                 <div class="step-number">1</div>
                 <h3>Configure</h3>
-                <p>Choose your software (Paper/Fabric), version, and RAM.</p>
+                <p>Choose your software (Paper/Fabric), version, and allocate RAM.</p>
             </div>
             <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
             <div class="step">
                 <div class="step-number">2</div>
                 <h3>Launch</h3>
-                <p>AServer generates a script and boots up PRoot Ubuntu via Termux.</p>
+                <p>AServer auto-downloads the required Java version and fires up the server engine natively.</p>
             </div>
             <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
             <div class="step">
                 <div class="step-number">3</div>
                 <h3>Control</h3>
-                <p>Return to the app for live RCON control, logs, and player management.</p>
+                <p>Manage players, monitor live RAM/CPU, and share your server with the world.</p>
             </div>
         </div>
     </section>
@@ -78,6 +82,11 @@
                 <p>Run both Plugin-based (PaperMC) and Modded (Fabric) servers effortlessly with one tap.</p>
             </div>
             <div class="feature-card">
+                <i class="fa-solid fa-globe"></i>
+                <h3>Playit.gg Built-in</h3>
+                <p>Share your server globally without touching your router. Built-in auto port-forwarding.</p>
+            </div>
+            <div class="feature-card">
                 <i class="fa-solid fa-store"></i>
                 <h3>Smart Mod Store</h3>
                 <p>Built-in Modrinth integration with strict version matching. Never crash your server again.</p>
@@ -85,13 +94,13 @@
             <div class="feature-card">
                 <i class="fa-solid fa-terminal"></i>
                 <h3>Live Console</h3>
-                <p>Real-time colored ANSI logs, hardware monitoring, and quick macro buttons.</p>
+                <p>Real-time colored logs, hardware monitoring (RAM/CPU), and quick macro buttons.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>BadiAdam Tarafından  Hazırlandı.</p>
+        <p>BadiAdam Tarafından Hazırlandı.</p>
         <p>Open Source. MIT License.</p>
     </footer>
 
