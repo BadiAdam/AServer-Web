@@ -5,18 +5,18 @@
 
 :root {
     /* Renk Paleti (Sophisticated & Modern) */
-    --bg-deep: #0D1117;       /* Saf siyah yerine derin gri */
-    --bg-surface: #161B22;    /* Kartlar ve yüzeyler */
+    --bg-deep: #0D1117;       
+    --bg-surface: #161B22;    
     --bg-navbar: rgba(13, 17, 23, 0.8);
     
-    --primary-emerald: #10B981; /* Daha oturaklı zümrüt yeşili */
+    --primary-emerald: #10B981; 
     --primary-hover: #059669;
     
-    --accent-blue: #60A5FA;   /* Windows mavisini dengeleyen ton */
+    --accent-blue: #60A5FA;   
     
-    --text-main: #F8FAFC;     /* Tam beyaz yerine soft beyaz */
-    --text-muted: #8B949E;    /* Muted metinler */
-    --border-color: rgba(248, 250, 252, 0.08); /* Çok hafif sınırlar */
+    --text-main: #F8FAFC;     
+    --text-muted: #8B949E;    
+    --border-color: rgba(248, 250, 252, 0.08); 
     
     /* Tipografi */
     --font-main: 'Inter', sans-serif;
@@ -27,7 +27,6 @@
     --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* --- Resets & Temel Ayarlar --- */
 * {
     margin: 0;
     padding: 0;
@@ -58,7 +57,6 @@ a {
 
 ul { list-style: none; }
 
-/* --- Animasyon (Reveals) --- */
 .reveal {
     opacity: 0;
     transform: translateY(20px);
@@ -70,7 +68,6 @@ ul { list-style: none; }
     transform: translateY(0);
 }
 
-/* --- Navbar (Glassmorphism + Premium) --- */
 .navbar {
     position: fixed;
     top: 0;
@@ -138,7 +135,6 @@ ul { list-style: none; }
     border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* --- Hero Section (Büyük, Temiz, Odaklı) --- */
 .hero {
     display: flex;
     align-items: center;
@@ -192,7 +188,6 @@ ul { list-style: none; }
     flex-wrap: wrap;
 }
 
-/* Devasa Profesyonel Download Butonları */
 .download-btn {
     display: flex;
     align-items: center;
@@ -226,7 +221,6 @@ ul { list-style: none; }
     font-weight: 500;
 }
 
-/* Windows Butonu (Çelik Mavisi) */
 .windows-btn {
     background-color: var(--accent-blue);
     color: #000;
@@ -238,7 +232,6 @@ ul { list-style: none; }
     box-shadow: 0 10px 30px rgba(96, 165, 250, 0.3);
 }
 
-/* Android Butonu (Zümrüt Yeşil) */
 .android-btn {
     background-color: var(--primary-emerald);
     color: #000;
@@ -250,7 +243,6 @@ ul { list-style: none; }
     box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
 }
 
-/* --- Platforms Section (Temiz Kıyaslama) --- */
 .platforms {
     padding: 100px 0;
     text-align: center;
@@ -303,7 +295,6 @@ ul { list-style: none; }
     font-size: 1rem;
 }
 
-/* --- Features Section (Bento Box Düzeni) --- */
 .features {
     padding: 100px 0;
     background-color: #0A0D12;
@@ -359,7 +350,6 @@ ul { list-style: none; }
     line-height: 1.5;
 }
 
-/* Bento Düzenlemeleri */
 .big-card {
     grid-column: span 2;
     padding: 40px;
@@ -376,7 +366,6 @@ ul { list-style: none; }
     grid-column: span 1;
 }
 
-/* --- Footer (Minimalist) --- */
 footer {
     padding: 50px 0;
     text-align: center;
@@ -389,7 +378,6 @@ footer strong {
     color: var(--text-main);
 }
 
-/* --- Responsive Ayarlar --- */
 @media (max-width: 992px) {
     .hero h1 { font-size: 3.5rem; }
     .bento-grid { grid-template-columns: repeat(2, 1fr); }
@@ -398,7 +386,7 @@ footer strong {
 
 @media (max-width: 768px) {
     .navbar .container { padding: 0 20px; }
-    .nav-links { display: none; } /* Mobile menü yapmıyoruz, şimdilik gizli */
+    .nav-links { display: none; } 
     
     .hero h1 { font-size: 2.8rem; letter-spacing: -2px; }
     .hero p { font-size: 1rem; }
