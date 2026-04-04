@@ -1,39 +1,56 @@
-// --- 1. KAYDIRMA (SCROLL REVEAL) ANİMASYONU ---
-function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
-    for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150;
-        if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
-        }
-    }
-}
-window.addEventListener("scroll", reveal);
-reveal(); // Sayfa açıldığında ilk kontrol
-
-// --- 2. TERMİNAL YAZI YAZMA (TYPEWRITER) EFEKTİ ---
 document.addEventListener('DOMContentLoaded', () => {
-    const lines = document.querySelectorAll('.terminal-body .log:not(.command)');
-    let delay = 0;
+    // Sadece Scroll (Aşağı Kaydırma) Animasyonları Kaldı
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
 
-    lines.forEach((line, index) => {
-        line.style.opacity = '0'; // Önce hepsini gizle
-        setTimeout(() => {
-            line.style.opacity = '1';
-            // Eğer son satırsa (Success), yeşil parlama efekti ver
-            if(line.classList.contains('success')) {
-                line.style.textShadow = '0 0 10px rgba(0, 230, 118, 0.5)';
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
             }
-        }, delay);
-        delay += 800; // Her satır arası 0.8 saniye bekle
-    });
+        });
+    }, observerOptions);
 
-    // İmleci en son göster
-    const commandLine = document.querySelector('.terminal-body .command');
-    commandLine.style.opacity = '0';
-    setTimeout(() => {
-        commandLine.style.opacity = '1';
-    }, delay + 200);
+    // Animasyon sınıflarını izlemeye al
+    document.querySelectorAll('.scroll-animate, .fade-in-up').forEach(el => {
+        observer.observe(el);
+    });
 });
+// --- 3. KAYDIRMAYA DUYARLI CİHAZ DÖNÜŞÜMÜ (SCROLL-DRIVEN MORPH) ---
+const morphSection = document.querySelector('.morph-section');
+const deviceMockup = document.getElementById('morph-device');
+const step1 = document.querySelector('.step-1');
+const step2 = document.querySelector('.step-2');
+
+if (morphSection && deviceMockup) {
+    window.addEventListener('scroll', () => {
+        // Bölgenin ekrandaki yerini hesapla
+        const rect = morphSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        let progress = 0;
+        
+        // Kullanıcı bu alana girdiği an hesaplama başlar
+        if (rect.top <= 0) {
+            const scrollDistance = -rect.top; 
+            const totalScrollable = rect.height - windowHeight;
+            // 0 ile 1 arasında ilerleme yüzdesi çıkar
+            progress = Math.min(Math.max(scrollDistance / totalScrollable, 0), 1);
+        }
+
+        // İlerleme %50'yi geçtiyse (Ekranın ortasına gelindiyse) Telefona dönüş!
+        if (progress > 0.5) {
+            deviceMockup.classList.add('is-mobile');
+            step1.classList.remove('active');
+            step2.classList.add('active');
+        } else {
+            // Geri yukarı çıkılırsa tekrar Bilgisayar formuna dön
+            deviceMockup.classList.remove('is-mobile');
+            step2.classList.remove('active');
+            step1.classList.add('active');
+        }
+    });
+}
