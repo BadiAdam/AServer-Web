@@ -1,417 +1,359 @@
 /* ============================================================================
-   AServer Premium Stil Sayfası (v2.0)
-   Tasarım: Bento Box, Siber-Modern, Profesyonel Siyah
+   AServer Ultra-Modern Stil (Stripe/Vercel İlhamlı)
    ============================================================================ */
 
 :root {
-    /* Renk Paleti (Sophisticated & Modern) */
-    --bg-deep: #0D1117;       
-    --bg-surface: #161B22;    
-    --bg-navbar: rgba(13, 17, 23, 0.8);
-    
-    --primary-emerald: #10B981; 
-    --primary-hover: #059669;
-    
-    --accent-blue: #60A5FA;   
-    
-    --text-main: #F8FAFC;     
-    --text-muted: #8B949E;    
-    --border-color: rgba(248, 250, 252, 0.08); 
-    
-    /* Tipografi */
+    --bg-base: #000000;
+    --bg-glass: rgba(20, 20, 20, 0.6);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --cyan-glow: #00E5FF;
+    --emerald-glow: #10B981;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A1A1AA;
     --font-main: 'Inter', sans-serif;
-    
-    /* Gölgeler & Sınırlar */
-    --radius-card: 16px;
-    --radius-btn: 10px;
-    --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* --- Resets & Temel Ayarlar --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: var(--bg-deep);
-    color: var(--text-main);
+    background-color: var(--bg-base);
+    color: var(--text-primary);
     font-family: var(--font-main);
-    line-height: 1.6;
     overflow-x: hidden;
+    line-height: 1.5;
 }
 
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-}
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+a { text-decoration: none; color: inherit; }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-ul { list-style: none; }
-
-/* --- Animasyon (Reveals) --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.7s cubic-bezier(0.5, 0, 0, 1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- Navbar (Glassmorphism + Premium) --- */
-.navbar {
+/* --- Arka Plan Neon Işıklar (Ambient Glow) --- */
+.ambient-background {
     position: fixed;
-    top: 0;
-    width: 100%;
-    height: 80px;
-    background: var(--bg-navbar);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-color);
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1; pointer-events: none; overflow: hidden;
+}
+
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.4;
+    animation: float 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cyan-orb { width: 50vw; height: 50vw; background: var(--cyan-glow); top: -20%; left: -10%; }
+.emerald-orb { width: 40vw; height: 40vw; background: var(--emerald-glow); bottom: -10%; right: -10%; animation-delay: -5s; }
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+/* --- Yüzen Navbar (Kapsül Tasarım) --- */
+.floating-nav {
+    position: fixed;
+    top: 24px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; 
+    align-items: center;
+    width: 90%; max-width: 800px;
+    padding: 12px 24px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    border-radius: 100px;
     z-index: 1000;
 }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
+.nav-brand { flex: 1; display: flex; justify-content: flex-start; align-items: center; gap: 8px; font-weight: 700; font-size: 1.1rem; }
+.nav-menu { flex: 1; display: flex; justify-content: center; gap: 24px; font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); }
+.nav-actions { flex: 1; display: flex; justify-content: flex-end; }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
+.brand-icon { color: var(--cyan-glow); width: 20px; height: 20px; }
+.nav-menu a:hover { color: var(--text-primary); transition: 0.3s; }
+.nav-btn.ghost { font-size: 0.9rem; padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border-glass); transition: 0.3s; }
+.nav-btn.ghost:hover { background: rgba(255,255,255,0.1); }
 
-.logo-icon {
-    color: var(--primary-emerald);
-    width: 28px;
-    height: 28px;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-muted);
-}
-
-.nav-links a:hover {
-    color: var(--text-main);
-}
-
-.github-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    color: var(--text-main) !important;
-}
-
-.github-link i {
-    font-size: 16px; /* FontAwesome uyumu için eklendi */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.github-link:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.15);
-}
-
-/* --- Hero Section (Büyük, Temiz, Odaklı) --- */
-.hero {
-    display: flex;
-    align-items: center;
+/* --- Ultra Hero Bölümü --- */
+.hero-section {
     min-height: 100vh;
-    padding-top: 100px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
 }
 
-.platform-badge {
-    display: inline-flex;
+.hero-container { max-width: 800px; padding: 0 24px; display: flex; flex-direction: column; align-items: center; }
+
+.badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; margin-bottom: 32px;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass);
+    border-radius: 100px; font-size: 0.85rem; font-weight: 500;
+}
+
+.pulse-dot { width: 8px; height: 8px; background: var(--emerald-glow); border-radius: 50%; box-shadow: 0 0 10px var(--emerald-glow); animation: pulse 2s infinite; }
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+.hero-title { font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; }
+.gradient-text {
+    background: linear-gradient(to right, var(--cyan-glow), var(--emerald-glow));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.hero-subtitle { font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-secondary); max-width: 600px; margin-bottom: 48px; }
+
+/* Butonlar */
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.btn {
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 28px; border-radius: 16px;
+    font-weight: 600; text-align: left; transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.btn i { font-size: 24px; }
+.btn-info { display: flex; flex-direction: column; }
+.btn-info .os { font-size: 1.1rem; line-height: 1; }
+.btn-info .ver { font-size: 0.75rem; opacity: 0.8; font-weight: 400; margin-top: 4px; }
+
+.windows-btn { background: #FFFFFF; color: #000000; box-shadow: 0 0 30px rgba(255,255,255,0.2); }
+.windows-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(255,255,255,0.4); }
+
+.android-btn { background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid var(--border-glass); backdrop-filter: blur(10px); }
+.android-btn:hover { background: rgba(255,255,255,0.1); transform: translateY(-4px); border-color: rgba(255,255,255,0.3); }
+
+/* --- Özellikler (Bento Grid) --- */
+.feature-section { padding: 120px 0; z-index: 10; position: relative; }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-header h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; }
+.section-header p { color: var(--text-secondary); font-size: 1.1rem; }
+
+.bento-layout {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    grid-auto-rows: minmax(250px, auto); /* Syntax hatası düzeltildi */
+    gap: 24px;
+}
+
+.bento-card {
+    background: rgba(20,20,20,0.5); border: 1px solid var(--border-glass); border-radius: 24px;
+    padding: 40px; display: flex; flex-direction: column; justify-content: flex-end;
+    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+.bento-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-5px); background: rgba(30,30,30,0.8); }
+
+.card-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(0, 229, 255, 0.1); color: var(--cyan-glow); border-radius: 12px; margin-bottom: 24px; }
+.bento-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
+.bento-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+
+.col-span-2 { grid-column: span 2; }
+.row-span-2 { grid-row: span 2; justify-content: flex-start; }
+
+/* --- Footer --- */
+.modern-footer { padding: 60px 0; border-top: 1px solid var(--border-glass); margin-top: 80px; }
+.footer-content { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.footer-content .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.2rem; }
+.footer-content p { color: var(--text-secondary); font-size: 0.9rem; }
+.footer-links { display: flex; gap: 24px; margin-top: 16px; }
+.footer-links a { color: var(--text-secondary); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+.footer-links a:hover { color: var(--text-primary); }
+
+/* --- Animasyonlar (JS ile Tetiklenen) --- */
+.fade-in-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+.scroll-animate { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.scroll-animate.active { opacity: 1; transform: translateY(0); }
+
+/* --- Mobil Uyum --- */
+@media (max-width: 900px) {
+    .bento-layout { grid-template-columns: 1fr 1fr !important; }
+    .col-span-2 { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .floating-nav { width: calc(100% - 48px); border-radius: 16px; }
+    .nav-brand { justify-content: flex-start; }
+    .nav-actions { justify-content: flex-end; }
+    
+    .hero-section { padding-top: 130px; }
+    .hero-buttons { flex-direction: column; width: 100%; }
+    .btn { width: 100%; justify-content: center; }
+    .bento-layout { grid-template-columns: 1fr !important; }
+    .col-span-2, .row-span-2 { grid-column: span 1; grid-row: span 1; }
+    .bento-card { padding: 32px; }
+}
+/* ============================================================================
+   SCROLL-DRIVEN MORPH (Apple İllüzyonu)
+   ============================================================================ */
+
+.morph-section {
+    height: 200vh; /* Ekranı 2 kat uzatır, aşağı kaydırdıkça dönüşüm başlar */
+    position: relative;
+    background: linear-gradient(to bottom, var(--bg-base), rgba(20, 20, 20, 0.4));
+    border-top: 1px solid var(--border-glass);
+}
+
+.morph-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh; /* Ekranda sabit durur */
+    display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 6px 12px;
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--primary-emerald);
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 25px;
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    overflow: hidden;
 }
 
-.platform-badge i {
-    width: 16px;
-    height: 16px;
-}
-
-.hero h1 {
-    font-size: 4.5rem;
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -3px;
-    margin-bottom: 25px;
-}
-
-.highlight {
-    color: var(--primary-emerald);
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 700px;
-    margin: 0 auto 40px;
-}
-
-.download-actions {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* Devasa Profesyonel Download Butonları */
-.download-btn {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 18px 30px;
-    border-radius: var(--radius-btn);
-    min-width: 280px;
-    transition: 0.3s;
-}
-
-.download-btn i {
-    font-size: 32px; /* FontAwesome uyumu için */
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.8;
-}
-
-.btn-text {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.btn-text .top {
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-.btn-text .bottom {
-    font-size: 0.8rem;
-    opacity: 0.7;
-    font-weight: 500;
-}
-
-/* Windows Butonu (Çelik Mavisi) */
-.windows-btn {
-    background-color: var(--accent-blue);
-    color: #000;
-}
-
-.windows-btn:hover {
-    background-color: #A3D1FF;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(96, 165, 250, 0.3);
-}
-
-/* Android Butonu (Zümrüt Yeşil) */
-.android-btn {
-    background-color: var(--primary-emerald);
-    color: #000;
-}
-
-.android-btn:hover {
-    background-color: #34D399;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
-}
-
-/* --- Platforms Section (Temiz Kıyaslama) --- */
-.platforms {
-    padding: 100px 0;
-    text-align: center;
-}
-
-.platforms h2 {
-    font-size: 3rem;
-    font-weight: 800;
-    letter-spacing: -2px;
-    margin-bottom: 60px;
-}
-
-.platform-grid {
+.morph-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 60px;
+    align-items: center;
 }
 
-.platform-card {
-    background-color: var(--bg-surface);
-    padding: 50px;
-    border-radius: var(--radius-card);
-    border: 1px solid var(--border-color);
-    text-align: left;
-    transition: 0.4s;
+.morph-text-content {
+    position: relative;
+    height: 300px;
 }
 
-.platform-card:hover {
-    border-color: rgba(255, 255, 255, 0.1);
-    transform: scale(1.02);
+/* Metinlerin Geçiş Animasyonu */
+.morph-step {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.platform-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 25px;
+.morph-step.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) scale(1);
 }
 
-.pc-card .platform-icon { color: var(--accent-blue); }
-.android-card .platform-icon { color: var(--primary-emerald); }
-
-.platform-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 15px;
+.morph-step:not(.active) {
+    transform: translateY(-30%) scale(0.95);
 }
 
-.platform-card p {
-    color: var(--text-muted);
-    font-size: 1rem;
+.morph-step h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
 }
 
-/* --- Features Section (Bento Box Düzeni) --- */
-.features {
-    padding: 100px 0;
-    background-color: #0A0D12;
-    border-top: 1px solid var(--border-color);
-    text-align: center;
+.morph-step p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
-.features h2 {
-    font-size: 3rem;
-    font-weight: 800;
-    letter-spacing: -2px;
-    margin-bottom: 60px;
+/* --- SAF CSS İLE CİHAZ ÇİZİMİ --- */
+.morph-visual-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
 }
 
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(200px, auto);
-    gap: 20px;
+.device-mockup {
+    /* Başlangıç: Geniş Masaüstü Monitörü */
+    --d-width: 480px;
+    --d-height: 280px;
+    --d-radius: 12px;
+    --s-opacity: 1;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--d-width);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.bento-item {
-    background-color: var(--bg-surface);
-    border-radius: var(--radius-card);
-    border: 1px solid var(--border-color);
-    padding: 30px;
-    text-align: left;
-    transition: 0.3s;
+/* Kayan Ekranla Beraber JS Bu Class'ı Ekler -> TELEFONA DÖNÜŞÜR */
+.device-mockup.is-mobile {
+    --d-width: 200px;
+    --d-height: 420px;
+    --d-radius: 36px;
+    --s-opacity: 0;
+}
+
+/* Ekran Gövdesi */
+.device-screen {
+    width: 100%;
+    height: var(--d-height);
+    background: linear-gradient(135deg, var(--bg-surface), #050505);
+    border: 4px solid #333;
+    border-radius: var(--d-radius);
+    box-shadow: 0 20px 60px rgba(0, 229, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     position: relative;
     overflow: hidden;
 }
 
-.bento-item:hover {
-    border-color: rgba(255, 255, 255, 0.12);
+/* Ekranda Akıp Giden Parlama Efekti */
+.device-screen::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+    transform: skewX(-20deg);
+    animation: shine 4s infinite;
 }
 
-.bento-item i {
-    width: 24px;
-    height: 24px;
-    color: var(--primary-emerald);
-    margin-bottom: 20px;
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
 }
 
-.bento-item h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 10px;
+.device-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--cyan-glow);
+    transition: 0.8s;
 }
 
-.bento-item p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.5;
+.device-mockup.is-mobile .device-logo {
+    color: var(--emerald-glow); /* Telefona geçince renk değişir */
 }
 
-/* Bento Düzenlemeleri */
-.big-card {
-    grid-column: span 2;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* Monitör Standı ve Ayağı */
+.device-stand {
+    width: 40px;
+    height: 50px;
+    background: #222;
+    opacity: var(--s-opacity);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transform-origin: top;
 }
 
-.big-card i { width: 32px; height: 32px; }
-.big-card h3 { font-size: 1.4rem; }
-.big-card p { font-size: 1rem; max-width: 90%; }
-
-.small-card {
-    grid-column: span 1;
+.device-base {
+    width: 160px;
+    height: 12px;
+    background: #444;
+    border-radius: 6px 6px 0 0;
+    opacity: var(--s-opacity);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* --- Footer (Minimalist) --- */
-footer {
-    padding: 50px 0;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-muted);
-    font-size: 0.9rem;
+/* Telefonda Monitör Standı Yok Olur */
+.device-mockup.is-mobile .device-stand,
+.device-mockup.is-mobile .device-base {
+    height: 0;
+    margin: 0;
+    padding: 0;
 }
 
-footer strong {
-    color: var(--text-main);
-}
-
-/* --- Responsive Ayarlar --- */
-@media (max-width: 992px) {
-    .hero h1 { font-size: 3.5rem; }
-    .bento-grid { grid-template-columns: repeat(2, 1fr); }
-    .big-card { grid-column: span 2; }
-}
-
-@media (max-width: 768px) {
-    .navbar .container { padding: 0 20px; }
-    .nav-links { display: none; } /* Mobile menü yapmıyoruz, şimdilik gizli */
-    
-    .hero h1 { font-size: 2.8rem; letter-spacing: -2px; }
-    .hero p { font-size: 1rem; }
-    
-    .platform-grid { grid-template-columns: 1fr; }
-    .platform-card { padding: 30px; }
-    
-    .bento-grid { grid-template-columns: 1fr; }
-    .big-card, .small-card { grid-column: span 1; padding: 30px; }
+/* Mobil Görünüm Ayarı (Tablet/Telefonda animasyonu kapatır, düz listeler) */
+@media (max-width: 900px) {
+    .morph-section { height: auto; padding: 100px 0; }
+    .morph-sticky { position: relative; height: auto; }
+    .morph-layout { grid-template-columns: 1fr; text-align: center; }
+    .morph-text-content { height: auto; display: flex; flex-direction: column; gap: 40px; }
+    .morph-step { position: relative; top: 0; transform: none !important; opacity: 1; visibility: visible; }
+    .morph-visual-content { display: none; } /* Mobilde cihaz çizimi yer kaplamasın */
 }
