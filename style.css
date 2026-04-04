@@ -415,3 +415,53 @@ footer strong {
     .bento-grid { grid-template-columns: 1fr; }
     .big-card, .small-card { grid-column: span 1; padding: 30px; }
 }
+/* --- YENİ SABİT TELEFON DÜZENİ (sticky scroll) --- */
+
+/* Hero konteynerini bento grid yerine iki sütunlu düzene çeviriyoruz */
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Sol metin, sağ görsel */
+    gap: 40px;
+    align-items: start; /* İçerik yukarıda başlasın */
+    padding-top: 100px; /* Navbar altı boşluk */
+}
+
+/* Metin tarafı için hizalama ayarı */
+.hero-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Görsel tarafı (telefonun sabitleneceği yer) */
+.hero-visual-content {
+    position: -webkit-sticky; /* Eski tarayıcılar için */
+    position: sticky; /* SABİTLEME SİHRİ BURADA */
+    top: 15vh; /* Navbar'dan ne kadar aşağıda sabitlenecek */
+    display: flex;
+    justify-content: center; /* Telefonu ortala */
+    height: auto;
+}
+
+/* Telefon görselinin boyutu */
+.sticky-phone {
+    width: 100%;
+    max-width: 320px; /* Telefonun aşırı büyümesini engelle */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 229, 255, 0.15); /* Neon gölge */
+}
+
+/* Mobil uyumluluk: Ekran küçülürse telefon aşağı düşsün */
+@media (max-width: 968px) {
+    .hero-layout {
+        grid-template-columns: 1fr; /* Tek sütun */
+        text-align: center;
+    }
+
+    .hero-visual-content {
+        position: relative; /* Sabitlemeyi kaldır */
+        top: 0;
+        margin-top: 40px;
+    }
+}
