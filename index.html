@@ -3,120 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AServer - Unified Minecraft Server Solution</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <title>AServer | Yeni Nesil Sunucu Mimarisi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <nav class="navbar reveal">
-        <div class="container">
-            <div class="logo">
-                <i data-lucide="server" class="logo-icon"></i>
-                <span>AServer</span>
-            </div>
-            <div class="nav-links">
-                <a href="#features">Özellikler</a>
-                <a href="#platforms">Platformlar</a>
-                <a href="https://github.com/BadiAdam/AServer-PC" target="_blank" class="github-link"><i class="fa-brands fa-windows"></i> PC</a>
-                <a href="https://github.com/BadiAdam/AServer" target="_blank" class="github-link"><i class="fa-brands fa-android"></i> Android</a>
-            </div>
+
+    <div class="ambient-background">
+        <div class="glow-orb cyan-orb"></div>
+        <div class="glow-orb emerald-orb"></div>
+    </div>
+
+    <nav class="floating-nav fade-in-up">
+        <div class="nav-brand">
+            <i data-lucide="hexagon" class="brand-icon"></i>
+            <span>AServer</span>
+        </div>
+        <div class="nav-menu">
+            <a href="#features">Mühendislik</a>
+            <a href="#ecosystem">Ekosistem</a>
+        </div>
+        <div class="nav-actions">
+            <a href="https://github.com/BadiAdam/AServer" target="_blank" class="nav-btn ghost"><i class="fa-brands fa-github"></i> Kaynak Kod</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="container">
-            <div class="hero-content reveal">
-                <div class="platform-badge">
-                    <i data-lucide="check-circle"></i> Windows PC & Android Platformları İçin
-                </div>
-                <h1>Unified Minecraft <br><span class="highlight">Server Hosting.</span></h1>
-                <p>Karmaşık kodlar, modem ayarları veya Java kurulumlarıyla uğraşmayın. AServer ile tam fonksiyonlu PaperMC ve Fabric sunucularınızı Windows veya Android cihazınızda tek tıkla barındırın.</p>
-                <div class="download-actions">
-                    <a href="https://github.com/BadiAdam/AServer-PC/releases/download/v1.0.0/AServer-1.0.0.msi" class="download-btn windows-btn">
-                        <i class="fa-brands fa-windows"></i>
-                        <div class="btn-text">
-                            <span class="top">Windows için İndir</span>
-                            <span class="bottom">v1.0.0 Resmi .msi Yükleyicisi</span>
-                        </div>
-                    </a>
-                    <a href="https://github.com/BadiAdam/AServer/releases/download/v1.2.0/AServer-v1.2.0.apk" class="download-btn android-btn">
-                        <i class="fa-brands fa-android"></i>
-                        <div class="btn-text">
-                            <span class="top">Android için İndir</span>
-                            <span class="bottom">v1.2.0 Resmi .apk Dosyası</span>
-                        </div>
-                    </a>
-                </div>
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="badge fade-in-up" style="animation-delay: 0.1s;">
+                <span class="pulse-dot"></span> AServer v1.2.0 Yayında
+            </div>
+            
+            <h1 class="hero-title fade-in-up" style="animation-delay: 0.2s;">
+                Sunucunu <span class="gradient-text">Özgürleştir.</span><br>Sınırları Kaldır.
+            </h1>
+            
+            <p class="hero-subtitle fade-in-up" style="animation-delay: 0.3s;">
+                PC veya Android fark etmez. Otomatik bağımlılık kurucu, dahili Playit.gg tüneli ve akıllı çökme dedektifi ile kendi cihazınızı profesyonel bir veri merkezine dönüştürün.
+            </p>
+            
+            <div class="hero-buttons fade-in-up" style="animation-delay: 0.4s;">
+                <a href="https://github.com/BadiAdam/AServer-PC/releases/download/v1.0.0/AServer-1.0.0.msi" class="btn primary-btn windows-theme">
+                    <i class="fa-brands fa-windows"></i>
+                    <div class="btn-info">
+                        <span class="os">Windows</span>
+                        <span class="ver">.msi Yükleyici</span>
+                    </div>
+                </a>
+                <a href="https://github.com/BadiAdam/AServer/releases/download/v1.2.0/AServer-v1.2.0.apk" class="btn primary-btn android-theme">
+                    <i class="fa-brands fa-android"></i>
+                    <div class="btn-info">
+                        <span class="os">Android</span>
+                        <span class="ver">v1.2.0 İndir</span>
+                    </div>
+                </a>
             </div>
         </div>
-    </header>
+    </section>
 
-    <section id="platforms" class="platforms reveal">
+    <section id="features" class="feature-section">
         <div class="container">
-            <h2>Çapraz Platform Gücü.</h2>
-            <div class="platform-grid">
-                <div class="platform-card pc-card">
-                    <i data-lucide="monitor" class="platform-icon"></i>
-                    <h3>AServer for PC</h3>
-                    <p>Masaüstü gücünü kullanın. Resmi Windows Yükleyicisi (.msi) ile kurun. Dahili Java motoru, Taskkill kalkanı ve tam telemetri radarı ile premium bir deneyim.</p>
+            <div class="section-header scroll-animate">
+                <h2>Teknolojik <span class="gradient-text">Üstünlük.</span></h2>
+                <p>Karmaşık sunucu altyapılarını tek bir arayüzde birleştirdik.</p>
+            </div>
+
+            <div class="bento-layout">
+                <div class="bento-card col-span-2 row-span-2 scroll-animate">
+                    <div class="card-icon"><i data-lucide="bot"></i></div>
+                    <h3>Akıllı Paket Yöneticisi</h3>
+                    <p>Modrinth üzerinden indirdiğiniz bir Fabric modunun çalışması için gereken tüm zorunlu alt modları (API, kütüphane vb.) yapay zeka tespit eder ve arkada zincirleme kurar.</p>
                 </div>
-                <div class="platform-card android-card">
-                    <i data-lucide="smartphone" class="platform-icon"></i>
-                    <h3>AServer for Mobile</h3>
-                    <p>Sunucunuzu cebinizde taşıyın. Modrinth entegrasyonu, akıllı mod mağazası ve canlı konsol ile Termux veya PRoot ayarlarıyla uğraşmadan mobil barındırma.</p>
+                
+                <div class="bento-card scroll-animate" style="transition-delay: 0.1s;">
+                    <div class="card-icon"><i data-lucide="radar"></i></div>
+                    <h3>Çökme Dedektifi</h3>
+                    <p>Sunucu çöktüğünde binlerce satır log okumaya son. Sistem hatayı (Port işgali, RAM eksikliği) bulur ve size direkt çözümü söyler.</p>
+                </div>
+
+                <div class="bento-card scroll-animate" style="transition-delay: 0.2s;">
+                    <div class="card-icon"><i data-lucide="globe"></i></div>
+                    <h3>Dahili Playit.gg</h3>
+                    <p>Modem arayüzüne girmeden, tek tıkla güvenli küresel tünel oluşturun.</p>
+                </div>
+
+                <div class="bento-card col-span-2 scroll-animate" style="transition-delay: 0.3s;">
+                    <div class="card-icon"><i data-lucide="cpu"></i></div>
+                    <h3>Otonom Java Motoru</h3>
+                    <p>Minecraft 1.8.8'den 1.21.11'e kadar seçtiğiniz sürüme uygun Java versiyonunu (8, 17 veya 21) sistem kendi bulur, indirir ve izole bir şekilde çalıştırır.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="features reveal">
-        <div class="container">
-            <h2>Mühendislik Harikası Özellikler.</h2>
-            <div class="bento-grid">
-                <div class="bento-item big-card reveal">
-                    <i data-lucide="cpu"></i>
-                    <h3>Otomatik Java Motoru</h3>
-                    <p>Seçtiğiniz Minecraft sürümüne (Vanilla, Paper, Fabric) göre gerekli olan Java versiyonunu (8, 17, 21) sistem otomatik olarak bulur, indirir ve gömer. Bilgisayarınıza Java kurmanıza gerek kalmaz.</p>
+    <section id="ecosystem" class="morph-section">
+        <div class="morph-sticky">
+            <div class="container morph-layout">
+                
+                <div class="morph-text-content">
+                    <div class="morph-step step-1 active">
+                        <div class="card-icon"><i data-lucide="monitor"></i></div>
+                        <h2>Masaüstü <span class="gradient-text">Gücü.</span></h2>
+                        <p>AServer for PC ile bilgisayarınızın tüm RAM ve işlemci kapasitesini özgür bırakın. Dahili Taskkill kalkanı ve otomatik Java motoruyla sunucunuzu profesyonel ve sarsılmaz bir kasada barındırın.</p>
+                    </div>
+                    <div class="morph-step step-2">
+                        <div class="card-icon"><i data-lucide="smartphone"></i></div>
+                        <h2>Mobil <span class="gradient-text">Özgürlük.</span></h2>
+                        <p>Kullanmadığınız o eski telefonu bir veri merkezine dönüştürün. AServer for Mobile ile cebinizden Modrinth mağazasına erişin, RCON konsolunu yönetin ve sunucunuzu her yere taşıyın.</p>
+                    </div>
                 </div>
-                <div class="bento-item big-card reveal">
-                    <i data-lucide="share-2"></i>
-                    <h3>Playit.gg Entegrasyonu</h3>
-                    <p>Modemden port açma (Port Forwarding) devri bitti. Dahili Playit entegrasyonu ile tek tıkla sunucunuzu tüm dünyaya güvenli bir tünel üzerinden açın.</p>
+
+                <div class="morph-visual-content">
+                    <div class="device-mockup" id="morph-device">
+                        <div class="device-screen">
+                            <div class="device-logo">AServer</div>
+                        </div>
+                        <div class="device-stand"></div>
+                        <div class="device-base"></div>
+                    </div>
                 </div>
-                <div class="bento-item small-card reveal">
-                    <i data-lucide="gauge"></i>
-                    <h3>Canlı Telemetri</h3>
-                    <p>Sunucunuzun tükettiği RAM'i ve sisteminizin genel CPU yükünü canlı grafiklerle izleyin.</p>
-                </div>
-                <div class="bento-item small-card reveal">
-                    <i data-lucide="shield-check"></i>
-                    <h3>Anti-Zombi Kalkanı</h3>
-                    <p>Sunucu kapandığında arkada sızıntı yapan Java işlemleri bırakmaz. Görev yöneticisini temiz tutar.</p>
-                </div>
-                <div class="bento-item small-card reveal">
-                    <i data-lucide="terminal"></i>
-                    <h3>Akıllı Konsol</h3>
-                    <p>Renkli loglar, RCON komut desteği ve oyuncu banlama/whitelist arayüzü.</p>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <footer class="reveal">
+    <footer class="modern-footer">
         <div class="container">
-            <p>AServer bir <strong>BadiAdam</strong> Projesidir.</p>
-            <p>Open Source. MIT License. © 2026</p>
+            <div class="footer-content">
+                <div class="brand">
+                    <i data-lucide="server"></i> AServer
+                </div>
+                <p>Geleceğin Sunucu Mimarisi. Coded by <strong>BadiAdam</strong>.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/BadiAdam/AServer" target="_blank"><i class="fa-brands fa-github"></i> Android Repo</a>
+                    <a href="https://github.com/BadiAdam/AServer-PC" target="_blank"><i class="fa-brands fa-windows"></i> PC Repo</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script>
-        lucide.createIcons();
-    </script>
+    <script>lucide.createIcons();</script>
     <script src="script.js"></script>
 </body>
 </html>
